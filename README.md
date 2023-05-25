@@ -14,7 +14,8 @@ tags:
 
 - Python
 - Flask
-- Docker
+- Language Translation
+- Language Detection
 
 ## 💁‍♀️ Requirements
 

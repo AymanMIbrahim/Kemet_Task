@@ -25,6 +25,6 @@ tags:
 - pip install textblob.
 
 ## ⚙️ Description
-- A language detector api that can detect the langauge of the sentence you're writing with using the api (localhost:5000/detect_language).
-- Also it's an arabic - english language translator that can translate between arabic and english using the api (localhost:5000/translate_sentence).
+- A language detector api that can detect the langauge of the sentence you're writing with using the api (localhost:5000/dt).
+- Also it's an arabic - english language translator that can translate between arabic and english using the api (localhost:5000/tr).
 

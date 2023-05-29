@@ -31,7 +31,7 @@ tags:
 - Also it's an arabic - english language translator that can translate between arabic and english using the api (localhost:5000/tr).
 
 ## ⚙️ Data Shape
-  # Detection:
+  ### Detection:
 it should be in JSON formate
 {
   "sentence":"How are you?"
@@ -42,7 +42,7 @@ responce:
   "language": "en"
 }
 
-# Translation:
+### Translation:
 it should be in JSON formate
 {
   "sentence":"How are you?"

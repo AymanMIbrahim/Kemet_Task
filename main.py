@@ -2,6 +2,10 @@ from langdetect import detect_langs
 from textblob import TextBlob
 from flask import Flask,request,jsonify
 import time
+from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+
+model = MBartForConditionalGeneration.from_pretrained("facebook/mbart-large-50-many-to-many-mmt")
+tokenizer = MBart50TokenizerFast.from_pretrained("facebook/mbart-large-50-many-to-many-mmt")
 
 
 app = Flask(__name__)
@@ -31,16 +35,20 @@ def translate_sent():
         s = time.time()
         from_lang = str(detect_langs(sent)[0]).split(":")[0]
         if from_lang == "ar" or from_lang == "en":
-            sent = TextBlob(sent)
             if from_lang == "ar":
-                translated_sentence = sent.translate(from_lang=from_lang,to="en")
+                tokenizer.src_lang = "ar_AR"
+                encoded_ar = tokenizer(sent, return_tensors="pt")
+                generated_tokens = model.generate(**encoded_ar, forced_bos_token_id=tokenizer.lang_code_to_id["en_XX"])
+                translated_sentence = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
                 e = time.time()
                 return jsonify({"language": f"{translated_sentence}","Time Taken":f"{round(e-s,3)}"})
             else:
-                translated_sentence = sent.translate(from_lang=from_lang, to="ar")
+                tokenizer.src_lang = "en_XX"
+                encoded_ar = tokenizer(sent, return_tensors="pt")
+                generated_tokens = model.generate(**encoded_ar, forced_bos_token_id=tokenizer.lang_code_to_id["ar_AR"])
+                translated_sentence = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
                 e = time.time()
-                return jsonify({"language": f"{translated_sentence}","Time Taken":f"{round(e-s,3)}"})
-
+                return jsonify({"language": f"{translated_sentence}", "Time Taken": f"{round(e - s, 3)}"})
         else:
             return jsonify({"language": "Not_Supported"})
 

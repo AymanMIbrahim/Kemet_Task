@@ -7,6 +7,8 @@ tags:
   - flask
   - TextBlob
   - LangDetect
+  - Transformers
+  - ﻹقشىسبخق
 ---
 
 
@@ -23,6 +25,8 @@ tags:
 - pip install flask 
 - pip install langdetect.
 - pip install textblob.
+- pip install transformers
+- pip install transformers datasets evaluate sacrebleu sentencepiece
 
 ## ⚙️ Description
 - A language detector api that can detect the langauge of the sentence you're writing with using the api (localhost:5000/dt).

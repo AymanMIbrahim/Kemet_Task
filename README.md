@@ -24,7 +24,6 @@ tags:
 - pip install flask 
 - pip install langdetect.
 - pip install textblob.
-- pip install transformers
 - pip install transformers datasets evaluate sacrebleu sentencepiece
 
 ## ⚙️ Description

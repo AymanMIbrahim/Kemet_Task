@@ -8,7 +8,6 @@ tags:
   - TextBlob
   - LangDetect
   - Transformers
-  - ﻹقشىسبخق
 ---
 
 

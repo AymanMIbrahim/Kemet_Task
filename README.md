@@ -30,3 +30,25 @@ tags:
 - A language detector api that can detect the langauge of the sentence you're writing with using the api (localhost:5000/dt).
 - Also it's an arabic - english language translator that can translate between arabic and english using the api (localhost:5000/tr).
 
+## ⚙️ Data Shape
+  # Detection:
+it should be in JSON formate
+{
+  "sentence":"How are you?"
+}
+responce:
+{
+  "Time Take": "0.002",
+  "language": "en"
+}
+
+# Translation:
+it should be in JSON formate
+{
+  "sentence":"How are you?"
+}
+responce:
+{
+    "Time Taken": "1.455",
+    "translation": "كيف حالك؟"
+}
